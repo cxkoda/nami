@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Note: update this to your new project's name and version
 project(
-  Greeter
-  VERSION 1.0
+  Nami
+  VERSION 0.0.1
   LANGUAGES CXX
 )
 
@@ -40,20 +40,20 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/
 # ---- Create library ----
 
 # Note: for header-only libraries change all PUBLIC flags to INTERFACE and create an interface
-# target: add_library(Greeter INTERFACE) set_target_properties(Greeter PROPERTIES
+# target: add_library(Nami INTERFACE) set_target_properties(Nami PROPERTIES
 # INTERFACE_COMPILE_FEATURES cxx_std_17)
 
-add_library(Greeter ${headers} ${sources})
+add_library(Nami ${headers} ${sources} source/grid.cpp include/nami/grid.h include/nami/state.h)
 
-set_target_properties(Greeter PROPERTIES CXX_STANDARD 17)
+set_target_properties(Nami PROPERTIES CXX_STANDARD 17)
 
 # being a cross-platform target, we enforce standards conformance on MSVC
-target_compile_options(Greeter PUBLIC "$<$<BOOL:${MSVC}>:/permissive->")
+target_compile_options(Nami PUBLIC "$<$<BOOL:${MSVC}>:/permissive->")
 
-# Link dependencies (if required) target_link_libraries(Greeter PUBLIC cxxopts)
+# Link dependencies (if required) target_link_libraries(Nami PUBLIC cxxopts)
 
 target_include_directories(
-  Greeter PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+  Nami PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
                  $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
 )
 
