@@ -6,12 +6,12 @@
 #define NAMI_VARIABLESTACK_H
 
 #include <string>
-#include <type_traits>
 #include <tuple>
+#include <type_traits>
 
 namespace nami {
 
-  template <typename... T> struct VariableStack : std::tuple<T...> {
+  template <typename StackType, typename... T> struct VariableStack : std::tuple<T...> {
     VariableStack(T&&... args) : std::tuple<T...>{std::forward<T>(args)...} {}
   };
 
@@ -25,29 +25,28 @@ namespace nami {
     }
   }  // namespace internal
 
-  template <typename... T>
-  inline constexpr VariableStack<T...>& operator+=(VariableStack<T...>& lhs,
-                                                   const VariableStack<T...>& rhs) {
+  template <typename StackType, typename... T>
+  inline constexpr StackType& operator+=(StackType& lhs,
+                                         const VariableStack<StackType, T...>& rhs) {
     internal::transform(
         lhs, rhs, lhs, [](auto& a, const auto& b) { return a + b; },
         std::index_sequence_for<T...>{});
     return lhs;
   }
 
-  template <typename... T>
-  inline constexpr VariableStack<T...> operator+(VariableStack<T...> lhs,
-                                                 const VariableStack<T...>& rhs) {
+  template <typename StackType, typename... T>
+  inline constexpr StackType operator+(StackType lhs, const VariableStack<StackType, T...>& rhs) {
     lhs += rhs;
     return lhs;
   }
 
-
   namespace burger {
     enum VariableType { quantity };
 
-    template <typename T> struct BurgerStack: VariableStack<T> {
+    template <typename T> struct BurgerStack : VariableStack<BurgerStack<T>, T> {
       constexpr static VariableType allVariables[] = {quantity};
-      T quantity_{};
+
+      T& quantity_{std::get<0>(*this)};
     };
     //    template <typename T> struct Flux : nami::Flux<T> { T flux_{}; };
     //
