@@ -43,7 +43,7 @@ CPMAddPackage(
 # target: add_library(Nami INTERFACE) set_target_properties(Nami PROPERTIES
 # INTERFACE_COMPILE_FEATURES cxx_std_17)
 #add_library(Nami ${headers} ${sources})
-add_library(Nami ${headers} ${sources} include/nami/VariableStack.h include/nami/numerics.h source/dummy.cpp)
+add_library(Nami ${headers} ${sources} include/nami/VariableStack.h include/nami/numerics.h source/dummy.cpp include/nami/VariableStackStruct.h)
 
 set_target_properties(Nami PROPERTIES CXX_STANDARD 17)
 

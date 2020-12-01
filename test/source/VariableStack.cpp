@@ -3,7 +3,7 @@
 
 #include <string>
 
-using namespace nami;
+using namespace nami::attempt1;
 
 // TEST_CASE("VariableStack Arithmetic") {
 //  nami::VariableStack<double> state{0.6};

@@ -9,7 +9,7 @@
 #include <tuple>
 #include <type_traits>
 
-namespace nami {
+namespace nami::attempt1 {
 
   template <typename StackType, typename... T> struct VariableStack : std::tuple<T...> {
     VariableStack(T&&... args) : std::tuple<T...>{std::forward<T>(args)...} {}
