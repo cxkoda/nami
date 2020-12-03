@@ -26,13 +26,14 @@ namespace nami::core {
   }  // namespace internal
 
   template <typename Iterable>
+  inline constexpr Iterable operator+(Iterable lhs, const Iterable& rhs);
+
+  template <typename Iterable>
   inline constexpr Iterable& operator+=(Iterable& lhs, const Iterable& rhs) {
     internal::transform(
         lhs, rhs, lhs, [](auto& a, const auto& b) { return a + b; },
-        //        std::index_sequence_for<T...>{});
         std::make_integer_sequence<std::size_t,
                                    std::tuple_size<decltype(Iterable::data)>::value>{});
-    //    std::make_integer_sequence<std::size_t, Iterable::size>{});
     return lhs;
   }
 
@@ -45,4 +46,4 @@ namespace nami::core {
   template <typename... Field> using Fields = std::tuple<Field...>;
 
 }  // namespace nami::core
-#endif  // NAMI_VARIABLESTACK_H
+#endif
