@@ -38,7 +38,7 @@ CPMAddPackage(
 # ---- Create binary ----
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
-add_executable(NamiTests ${sources})
+add_executable(NamiTests ${sources} source/Goofy.h)
 target_link_libraries(NamiTests doctest Nami)
 
 set_target_properties(NamiTests PROPERTIES CXX_STANDARD 17)
