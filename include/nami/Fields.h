@@ -2,14 +2,14 @@
 // Created by dave on 28.11.20.
 //
 
-#ifndef NAMI_VARIABLESTACK_H
-#define NAMI_VARIABLESTACK_H
+#ifndef NAMI_FIELDS_H
+#define NAMI_FIELDS_H
 
 #include <string>
 #include <tuple>
 #include <type_traits>
 
-namespace nami::attempt3 {
+namespace nami::core {
 
   template <std::size_t idx, typename Iterable> constexpr inline auto&& get(Iterable&& object) {
     return std::get<idx>(std::forward<Iterable>(object).data);
@@ -44,11 +44,5 @@ namespace nami::attempt3 {
 
   template <typename... Field> using Fields = std::tuple<Field...>;
 
-  //  template<typename T>
-  //  struct Generic {
-  //    constexpr static char name[] = "Generic";
-  //    T data_;
-  //  };
-
-}  // namespace nami::attempt3
+}  // namespace nami::core
 #endif  // NAMI_VARIABLESTACK_H

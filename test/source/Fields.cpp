@@ -1,10 +1,10 @@
 #include <doctest/doctest.h>
-#include <nami/VariableStackTuple2.h>
+#include <nami/Fields.h>
 
 #include <string>
 #include <type_traits>
 
-using namespace nami::attempt3;
+using namespace nami::core;
 
 template <typename... T> struct TestStack {
   TestStack(T&&... arg) : data{std::forward<T>(arg)...} {}
