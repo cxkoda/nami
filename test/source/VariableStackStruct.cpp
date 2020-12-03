@@ -29,7 +29,7 @@ template <typename T> struct TestStack {
     }
   }
 
-  template <std::size_t idx> inline constexpr auto&& get() const & noexcept {
+  template <std::size_t idx> inline constexpr auto&& get() const& noexcept {
     if constexpr (idx == 0) {
       return q1;
     } else if constexpr (idx == 1) {

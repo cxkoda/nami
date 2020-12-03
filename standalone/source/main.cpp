@@ -6,14 +6,14 @@
 //#include <string>
 //#include <unordered_map>
 //
-//const std::unordered_map<std::string, greeter::LanguageCode> languages{
+// const std::unordered_map<std::string, greeter::LanguageCode> languages{
 //    {"en", greeter::LanguageCode::EN},
 //    {"de", greeter::LanguageCode::DE},
 //    {"es", greeter::LanguageCode::ES},
 //    {"fr", greeter::LanguageCode::FR},
 //};
 //
-//int main(int argc, char** argv) {
+// int main(int argc, char** argv) {
 //  cxxopts::Options options(argv[0], "A program to welcome the world!");
 //
 //  std::string language;

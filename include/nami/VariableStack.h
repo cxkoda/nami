@@ -60,6 +60,6 @@ namespace nami::attempt1 {
 
   }  // namespace burger
 
-}  // namespace nami
+}  // namespace nami::attempt1
 
 #endif  // NAMI_VARIABLESTACK_H
