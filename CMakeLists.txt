@@ -34,16 +34,15 @@ CPMAddPackage(
 
 # Note: globbing sources is considered bad practice as CMake's generators may not detect new files
 # automatically. Keep that in mind when changing files, or explicitly mention them here.
-#file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
-#file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
+file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
 
 # ---- Create library ----
 
 # Note: for header-only libraries change all PUBLIC flags to INTERFACE and create an interface
 # target: add_library(Nami INTERFACE) set_target_properties(Nami PROPERTIES
 # INTERFACE_COMPILE_FEATURES cxx_std_17)
-#add_library(Nami ${headers} ${sources})
-add_library(Nami ${headers} ${sources} include/nami/VariableStack.h include/nami/numerics.h source/dummy.cpp include/nami/VariableStackStruct.h)
+add_library(Nami ${headers} ${sources})
 
 set_target_properties(Nami PROPERTIES CXX_STANDARD 17)
 
