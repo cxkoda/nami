@@ -10,7 +10,7 @@ namespace nami {
     //    template <typename T> struct NumericalFlux {};
     //    template <typename T> using NumericalFlux = Flux<T>;
 
-    template <typename T> auto computeHllFlux(const T& leftState, const T& rightState) {
+    template <typename T> constexpr auto computeHllFlux(const T& leftState, const T& rightState) {
       auto leftSpeed = computeSignalSpeed(leftState);
       auto rightSpeed = computeSignalSpeed(rightState);
       auto leftFlux = computeFlux(leftState);
