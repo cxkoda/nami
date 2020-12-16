@@ -21,8 +21,7 @@ namespace nami {
       Fields<T> data;
     };
 
-    template <typename Stack>
-    inline constexpr auto computeSignalSpeed(Stack&& stack) noexcept {
+    template <typename Stack> inline constexpr auto computeSignalSpeed(Stack&& stack) noexcept {
       return stack.u();
     }
 

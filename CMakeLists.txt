@@ -42,9 +42,9 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/
 # Note: for header-only libraries change all PUBLIC flags to INTERFACE and create an interface
 # target: add_library(Nami INTERFACE) set_target_properties(Nami PROPERTIES
 # INTERFACE_COMPILE_FEATURES cxx_std_17)
-add_library(Nami ${headers} ${sources})
+add_library(Nami ${headers} ${sources} include/nami/core/IndexTuple.h include/nami/core/ArrayArithmetic.h)
 
-set_target_properties(Nami PROPERTIES CXX_STANDARD 17)
+set_target_properties(Nami PROPERTIES CXX_STANDARD 20)
 
 # being a cross-platform target, we enforce standards conformance on MSVC
 target_compile_options(Nami PUBLIC "$<$<BOOL:${MSVC}>:/permissive->")
