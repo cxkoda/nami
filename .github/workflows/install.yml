@@ -13,12 +13,15 @@ env:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    name: Install and Test
+    runs-on: ubuntu-20.04
+    env:
+      CC: gcc-10
+      CXX: g++-10
     
     steps:
-    - uses: actions/checkout@v1
-    
+    - uses: actions/checkout@v2
+
     - name: build and install library
       run: |
         cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Release

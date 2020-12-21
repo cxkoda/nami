@@ -13,13 +13,20 @@ env:
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 jobs:
-  build-gcc:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [ 'g++-10', 'clang++' ]
 
-    runs-on: ubuntu-latest
+    env:
+      CXX: ${{ matrix.compiler }}
     
     steps:
-    - uses: actions/checkout@v1
-    
+    - uses: actions/checkout@v2
+
     - name: configure
       run: cmake -Htest -Bbuild -DENABLE_TEST_COVERAGE=1 -DCMAKE_BUILD_TYPE=Debug
 
@@ -33,24 +40,3 @@ jobs:
 
     - name: collect code coverage
       run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
-
-  build-clang:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: configure
-        run: |
-          export CC=/usr/bin/clang
-          export CXX=/usr/bin/clang++
-          cmake -Htest -Bbuild -DCMAKE_BUILD_TYPE=Debug
-
-      - name: build
-        run: cmake --build build -j4
-
-      - name: test
-        run: |
-          cd build
-          ctest --build-config Debug

@@ -4,13 +4,15 @@ on:
   push:
     tags:
       - '*'
+    branches:
+      - master
 
 jobs:
   build:
     name: Build and publish documentation
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Install dependencies
         run: |

@@ -10,17 +10,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
-    
-    - name: configure
-      run: cmake -Hstandalone -Bbuild -DCMAKE_BUILD_TYPE=Debug
+    - uses: actions/checkout@v2
 
-    - name: build
-      run: cmake --build build -j4
-
-#    - name: run
-#      run: ./build/Greeter
+#    - name: configure
+#      run: cmake -Hstandalone -Bbuild -DCMAKE_BUILD_TYPE=Debug
+#
+#    - name: build
+#      run: cmake --build build -j4
