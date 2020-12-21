@@ -6,6 +6,7 @@
 #define NAMI_ARRAYARITHMETIC_H
 
 #include <algorithm>
+#include <array>
 #include <cassert>
 
 namespace nami::core::array {
