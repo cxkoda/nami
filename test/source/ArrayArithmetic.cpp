@@ -17,7 +17,7 @@ TEST_CASE("Array Addition") {
   auto c = a + b;
 
   CHECK(c[0] == 11);
-  CHECK(c[0] == 22);
+  CHECK(c[1] == 22);
 }
 
 TEST_CASE("Array Subtraction") {
@@ -27,5 +27,5 @@ TEST_CASE("Array Subtraction") {
   auto c = a - b;
 
   CHECK(c[0] == -9);
-  CHECK(c[0] == -18);
+  CHECK(c[1] == -18);
 }
