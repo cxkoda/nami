@@ -41,7 +41,7 @@ file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 add_executable(NamiTests ${sources})
 target_link_libraries(NamiTests doctest Nami)
 
-set_target_properties(NamiTests PROPERTIES CXX_STANDARD 17)
+set_target_properties(NamiTests PROPERTIES CXX_STANDARD 20 CXX_EXTENSIONS OFF)
 
 # enable compiler warnings
 if(NOT TEST_INSTALLED_VERSION)

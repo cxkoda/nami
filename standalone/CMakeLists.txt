@@ -25,6 +25,11 @@ file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 
 add_executable(NamiStandalone ${sources})
 
-set_target_properties(NamiStandalone PROPERTIES CXX_STANDARD 17 OUTPUT_NAME "Nami")
+set_target_properties(
+  NamiStandalone
+  PROPERTIES CXX_STANDARD 20
+             CXX_EXTENSIONS OFF
+             OUTPUT_NAME "Nami"
+)
 
 target_link_libraries(NamiStandalone Nami cxxopts)
