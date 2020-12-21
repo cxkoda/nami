@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>nami::fv::OrthogonalFiniteVolumeGrid struct | Nami</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Nami</a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li>
+              <a href="pages.html">Pages</a>
+              <ol>
+                <li><a href="about.html">About</a></li>
+              </ol>
+            </li>
+            <li><a href="namespaces.html">Namespaces</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_finite_volume_grid_8h.html">&lt;nami/FiniteVolumeGrid.h&gt;</a></div>
+          <div class="m-doc-template">template&lt;<a href="namespacenami_1_1core.html#ac25a796d3d036360a56a2135e632a4fd" class="m-doc">core::<wbr />Rim_t</a> rim, <a href="namespacenami_1_1core.html#a25a15d0d4aa8ba0e7405621372b12deb" class="m-doc">core::<wbr />Dimension_t</a> dimension, typename OrthogonalGriddingStrategy, typename FiniteVolumeCellBuilderType&gt;</div>
+          <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacenami_1_1fv.html">fv</a>::<wbr/></span>OrthogonalFiniteVolumeGrid <span class="m-thin">struct</span>
+        </h1>
+        <p><span></span></p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-types">Public types</a></li>
+                <li><a href="#pub-static-methods">Public static functions</a></li>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pub-attribs">Public variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt id="a9733d32bc1af44d60d7460f8e5b4fed9">
+              using <a href="#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc-self">IndexTuple</a> = <a href="namespacenami_1_1core.html#ad1972e302bee15088bda191d7a4900ce" class="m-doc">core::<wbr />IndexTuple</a>&lt;dimension&gt;
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad786cadb6d4e3c1774113f31a86b41dd">
+              using <a href="#ad786cadb6d4e3c1774113f31a86b41dd" class="m-doc-self">Extent</a> = <a href="namespacenami_1_1core.html#a35426859a9bf34729d8be6b06d0f1e37" class="m-doc">core::<wbr />Extent</a>&lt;dimension&gt;
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ac29b9fc662e565d3ceed8555b2fd0f55">
+              using <a href="#ac29b9fc662e565d3ceed8555b2fd0f55" class="m-doc-self">Cell</a> = <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_cell.html" class="m-doc">OrthogonalFiniteVolumeCell</a>&lt;dimension&gt;
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a884802c9a568c1190e097c0bfecf5a10">
+              using <a href="#a884802c9a568c1190e097c0bfecf5a10" class="m-doc-self">IndexTuplePair</a> = std::pair&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>, <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&gt;
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-static-methods">
+          <h2><a href="#pub-static-methods">Public static functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a28d331c7ceebbe334a094e0ce6a84a3a">
+              <span class="m-doc-wrap-bumper">static auto <a href="#a28d331c7ceebbe334a094e0ce6a84a3a" class="m-doc-self">computeCells</a>(</span><span class="m-doc-wrap">OrthogonalGriddingStrategy&amp; orthogonalGriddingStrategy,
+              const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; start,
+              const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; end,
+              FiniteVolumeCellBuilderType&amp; cellBuilder) -&gt; std::vector&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ac29b9fc662e565d3ceed8555b2fd0f55" class="m-doc">Cell</a>&gt;</span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab5756022a0ee3b05284a31e0d41aa54c">
+              <span class="m-doc-wrap-bumper">static auto <a href="#ab5756022a0ee3b05284a31e0d41aa54c" class="m-doc-self">computeNeighbouringPairs</a>(</span><span class="m-doc-wrap">const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; start,
+              const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; end) -&gt; std::vector&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a884802c9a568c1190e097c0bfecf5a10" class="m-doc">IndexTuplePair</a>&gt;</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt id="a053615a8160f015a7272736864b9ed70">
+              <span class="m-doc-wrap-bumper"><a href="#a053615a8160f015a7272736864b9ed70" class="m-doc-self">OrthogonalFiniteVolumeGrid</a>(</span><span class="m-doc-wrap"><a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ad786cadb6d4e3c1774113f31a86b41dd" class="m-doc">Extent</a> physicalExtent,
+              OrthogonalGriddingStrategy&amp;&amp; orthogonalGriddingStrategy,
+              FiniteVolumeCellBuilderType&amp;&amp; cellBuilder)</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a75feb892da497bada0283971a8505095">
+              <div class="m-doc-template">template&lt;typename Functor&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a75feb892da497bada0283971a8505095" class="m-doc-self">forEachCellInterface</a>(</span><span class="m-doc-wrap">Functor&amp;&amp; fun) <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a17e3f581b98991e06dd6665203aa3665">
+              <span class="m-doc-wrap-bumper">auto <a href="#a17e3f581b98991e06dd6665203aa3665" class="m-doc-self">getCellId</a>(</span><span class="m-doc-wrap">const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; idx) const -&gt; <a href="namespacenami_1_1fv.html#a6b51eb947884e02583e2f17120ecfd5f" class="m-doc">CellIdentifier</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="af768eaedab158264c74a95e63b35d87c">
+              <span class="m-doc-wrap-bumper">auto <a href="#af768eaedab158264c74a95e63b35d87c" class="m-doc-self">computeCellInterfaces</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;<a href="structnami_1_1fv_1_1_cell_interface.html" class="m-doc">CellInterface</a>&gt;</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a5a338ea527ea2868c9e12760ab299f16">
+              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ad786cadb6d4e3c1774113f31a86b41dd" class="m-doc">Extent</a> <a href="#a5a338ea527ea2868c9e12760ab299f16" class="m-doc-self">physicalExtent_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aacb75acfe554bd1085068ed651ed6fda">
+              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a> <a href="#aacb75acfe554bd1085068ed651ed6fda" class="m-doc-self">startTotalIndex_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa4af03f66ee7174b04689b962c45198b">
+              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a> <a href="#aa4af03f66ee7174b04689b962c45198b" class="m-doc-self">endTotalIndex_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a0e8e5598386504dfc111100ef2e3b74d">
+              std::size_t <a href="#a0e8e5598386504dfc111100ef2e3b74d" class="m-doc-self">numberOfPhysicalCells_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a6033bf4c0a34e791fe14b86bad4ff233">
+              std::size_t <a href="#a6033bf4c0a34e791fe14b86bad4ff233" class="m-doc-self">numberOfTotalCells_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="aa77fe78602e76d7d8309f6794fc480cf">
+              std::vector&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ac29b9fc662e565d3ceed8555b2fd0f55" class="m-doc">Cell</a>&gt; <a href="#aa77fe78602e76d7d8309f6794fc480cf" class="m-doc-self">cells_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ab1d5e0b95d0905c4cd91921b0b9929ce">
+              std::vector&lt;<a href="structnami_1_1fv_1_1_cell_interface.html" class="m-doc">CellInterface</a>&gt; <a href="#ab1d5e0b95d0905c4cd91921b0b9929ce" class="m-doc-self">cellInterfaces_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ad98d5663a8099076a9a3ee077389cab1">
+              OrthogonalGriddingStrategy <a href="#ad98d5663a8099076a9a3ee077389cab1" class="m-doc-self">orthogonalGriddingStrategy_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="a1a4c56c26c8f6a2ded27a165b298ae40">
+              FiniteVolumeCellBuilderType <a href="#a1a4c56c26c8f6a2ded27a165b298ae40" class="m-doc-self">cellBuilder_</a>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>Nami. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.20 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
