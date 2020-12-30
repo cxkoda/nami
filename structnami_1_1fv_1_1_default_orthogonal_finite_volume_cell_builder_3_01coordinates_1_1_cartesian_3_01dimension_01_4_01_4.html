@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>nami::fv::FiniteVolumeCellBuilder&lt;coordinates::Cartesian&lt;dimension&gt;&gt; struct | Nami</title>
+  <title>nami::fv::DefaultOrthogonalFiniteVolumeCellBuilder&lt;coordinates::Cartesian&lt;dimension&gt;&gt; struct | Nami</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -51,7 +51,7 @@
         <h1>
           <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_finite_volume_cell_8h.html">&lt;nami/FiniteVolumeCell.h&gt;</a></div>
           <div class="m-doc-template">template&lt;<a href="namespacenami_1_1core.html#a25a15d0d4aa8ba0e7405621372b12deb" class="m-doc">core::<wbr />Dimension_t</a> dimension&gt;</div>
-          <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacenami_1_1fv.html">fv</a>::<wbr/></span>FiniteVolumeCellBuilder&lt;coordinates::Cartesian&lt;dimension&gt;&gt; <span class="m-thin">struct</span>
+          <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacenami_1_1fv.html">fv</a>::<wbr/></span>DefaultOrthogonalFiniteVolumeCellBuilder&lt;coordinates::Cartesian&lt;dimension&gt;&gt; <span class="m-thin">struct</span>
         </h1>
         <p><span></span></p>
         <div class="m-block m-default">
@@ -60,16 +60,31 @@
             <li>
               Reference
               <ul>
+                <li><a href="#pub-types">Public types</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
               </ul>
             </li>
           </ul>
         </div>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt id="a11be122e29edf4bfbd3e6c654676922f">
+              using <a href="#a11be122e29edf4bfbd3e6c654676922f" class="m-doc-self">CoordinateSystem_t</a> = <a href="structnami_1_1coordinates_1_1_cartesian.html" class="m-doc">coordinates::<wbr />Cartesian</a>&lt;dimension&gt;
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae7d95c899f07816512726286a25faa2c">
+              using <a href="#ae7d95c899f07816512726286a25faa2c" class="m-doc-self">Cell_t</a> = <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_cell.html" class="m-doc">OrthogonalFiniteVolumeCell</a>&lt;<a href="structnami_1_1fv_1_1_default_orthogonal_finite_volume_cell_builder_3_01coordinates_1_1_cartesian_3_01dimension_01_4_01_4.html#a11be122e29edf4bfbd3e6c654676922f" class="m-doc">CoordinateSystem_<wbr />t</a>&gt;
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="abd1cd0acb6e5e1c005f34051877a9d2e">
-              <span class="m-doc-wrap-bumper">auto <a href="#abd1cd0acb6e5e1c005f34051877a9d2e" class="m-doc-self">operator()</a>(</span><span class="m-doc-wrap"><a href="structnami_1_1fv_1_1_orthogonal_coordinate_cell.html" class="m-doc">OrthogonalCoordinateCell</a>&lt;dimension&gt; coordinateCell) -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            <dt id="aaa5a4ad59a567c2355cec09446c7f02a">
+              <span class="m-doc-wrap-bumper">auto <a href="#aaa5a4ad59a567c2355cec09446c7f02a" class="m-doc-self">operator()</a>(</span><span class="m-doc-wrap">] const <a href="structnami_1_1fv_1_1_default_orthogonal_finite_volume_cell_builder_3_01coordinates_1_1_cartesian_3_01dimension_01_4_01_4.html#a11be122e29edf4bfbd3e6c654676922f" class="m-doc">CoordinateSystem_<wbr />t</a>&amp; coordinateSystem,
+              <a href="structnami_1_1fv_1_1_orthogonal_coordinate_cell.html" class="m-doc">OrthogonalCoordinateCell</a>&lt;CoordinateSystem_t::dimension&gt; coordinateCell) -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd><span></span></dd>
           </dl>

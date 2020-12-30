@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>nami::coordinates namespace | Nami</title>
+  <title>nami::timestepping namespace | Nami</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,7 +49,7 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span>coordinates <span class="m-thin">namespace</span>
+          <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span>timestepping <span class="m-thin">namespace</span>
         </h1>
         <p><span></span></p>
         <div class="m-block m-default">
@@ -59,7 +59,7 @@
               Reference
               <ul>
                 <li><a href="#nested-classes">Classes</a></li>
-                <li><a href="#func-members">Functions</a></li>
+                <li><a href="#typedef-members">Typedefs</a></li>
                 <li><a href="#var-members">Variables</a></li>
               </ul>
             </li>
@@ -69,27 +69,24 @@
           <h2><a href="#nested-classes">Classes</a></h2>
           <dl class="m-doc">
             <dt>
-              <div class="m-doc-template">template&lt;<a href="namespacenami_1_1core.html#a25a15d0d4aa8ba0e7405621372b12deb" class="m-doc">core::<wbr />Dimension_t</a> dim&gt;</div>
-              struct <a href="structnami_1_1coordinates_1_1_cartesian.html" class="m-doc">Cartesian</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt>
-              struct <a href="structnami_1_1coordinates_1_1_polar.html" class="m-doc">Polar</a>
+              struct <a href="structnami_1_1timestepping_1_1_explicit_euler.html" class="m-doc">ExplicitEuler</a>
             </dt>
             <dd><span></span></dd>
           </dl>
         </section>
-        <section id="func-members">
-          <h2><a href="#func-members">Functions</a></h2>
+        <section id="typedef-members">
+          <h2><a href="#typedef-members">Typedefs</a></h2>
           <dl class="m-doc">
             <dt>
-              <div class="m-doc-template">template&lt;coordinates::CoordinateSystem CoordinateSystem&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a46151ff34d263de6b5ec3a4732291f91" class="m-doc">dimension</a>(</span><span class="m-doc-wrap">) -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
+              using <a href="#a45d64050654db1df904557674894006c" class="m-doc">Time_t</a> = double
             </dt>
             <dd><span></span></dd>
             <dt>
-              <div class="m-doc-template">template&lt;coordinates::CoordinateSystem CoordinateSystem&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a4e5676b3e1ab009fe0aed494365267c4" class="m-doc">dimension</a>(</span><span class="m-doc-wrap"><a href="namespacenami_1_1coordinates.html#a55fb1fcee17637d6062c62b76e7e7b6a" class="m-doc">CoordinateSystem</a>&amp;&amp;) -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
+              using <a href="#a6ecd702be0c033c188af7e284fc9f194" class="m-doc">Timestep_t</a> = double
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              using <a href="#ab4a7c74a0785e0e8157b2369ae6f93a8" class="m-doc">IntegrationStep_t</a> = std::size_t
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -99,56 +96,91 @@
           <dl class="m-doc">
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              concept <a href="#a55fb1fcee17637d6062c62b76e7e7b6a" class="m-doc">CoordinateSystem</a>
+              concept <a href="#a9b070c57e184152c5eb4ebe766158ad6" class="m-doc">State_t</a>
             </dt>
-            <dd></dd>
+            <dd><span></span></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, typename State&gt;</div>
+              concept <a href="#a134ac4f9589992b5125ceb5508429de1" class="m-doc">Rhs_t</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, typename State&gt;</div>
+              concept <a href="#a0e31efe5e72d8816c5b6673aee3cb759" class="m-doc">RhsProxy_t</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, typename State&gt;</div>
+              concept <a href="#a1f41b5f3d699d583cff8cf95db94373e" class="m-doc">TimeIntegrator_t</a>
+            </dt>
+            <dd><span></span></dd>
           </dl>
         </section>
         <section>
-          <h2>Function documentation</h2>
-          <section class="m-doc-details" id="a46151ff34d263de6b5ec3a4732291f91"><div>
+          <h2>Typedef documentation</h2>
+          <section class="m-doc-details" id="a45d64050654db1df904557674894006c"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_cartesian_8h.html">&lt;nami/Cartesian.h&gt;</a></div>
-              <div class="m-doc-template">
-                template&lt;coordinates::CoordinateSystem CoordinateSystem&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">auto nami::<wbr />coordinates::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a46151ff34d263de6b5ec3a4732291f91" class="m-doc-self">dimension</a>(</span><span class="m-doc-wrap">) <span class="m-label m-primary">constexpr</span></span></span>
+              using nami::<wbr />timestepping::<wbr /><a href="#a45d64050654db1df904557674894006c" class="m-doc-self">Time_t</a> = double
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
             </h3>
             <p><span></span></p>
           </div></section>
-          <section class="m-doc-details" id="a4e5676b3e1ab009fe0aed494365267c4"><div>
+          <section class="m-doc-details" id="a6ecd702be0c033c188af7e284fc9f194"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_cartesian_8h.html">&lt;nami/Cartesian.h&gt;</a></div>
-              <div class="m-doc-template">
-                template&lt;coordinates::CoordinateSystem CoordinateSystem&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">auto nami::<wbr />coordinates::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4e5676b3e1ab009fe0aed494365267c4" class="m-doc-self">dimension</a>(</span><span class="m-doc-wrap"><a href="namespacenami_1_1coordinates.html#a55fb1fcee17637d6062c62b76e7e7b6a" class="m-doc">CoordinateSystem</a>&amp;&amp;) <span class="m-label m-primary">constexpr</span></span></span>
+              using nami::<wbr />timestepping::<wbr /><a href="#a6ecd702be0c033c188af7e284fc9f194" class="m-doc-self">Timestep_t</a> = double
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
+            </h3>
+            <p><span></span></p>
+          </div></section>
+          <section class="m-doc-details" id="ab4a7c74a0785e0e8157b2369ae6f93a8"><div>
+            <h3>
+              using nami::<wbr />timestepping::<wbr /><a href="#ab4a7c74a0785e0e8157b2369ae6f93a8" class="m-doc-self">IntegrationStep_t</a> = std::size_t
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
             </h3>
             <p><span></span></p>
           </div></section>
         </section>
         <section>
           <h2>Variable documentation</h2>
-          <section class="m-doc-details" id="a55fb1fcee17637d6062c62b76e7e7b6a"><div>
+          <section class="m-doc-details" id="a9b070c57e184152c5eb4ebe766158ad6"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_cartesian_8h.html">&lt;nami/Cartesian.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              concept nami::<wbr />coordinates::<wbr /><a href="#a55fb1fcee17637d6062c62b76e7e7b6a" class="m-doc-self">CoordinateSystem</a>
+              concept nami::<wbr />timestepping::<wbr /><a href="#a9b070c57e184152c5eb4ebe766158ad6" class="m-doc-self">State_t</a>
             </h3>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Template parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">T</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-<p>Defines geometric scales</p>
+            <p><span></span></p>
+          </div></section>
+          <section class="m-doc-details" id="a134ac4f9589992b5125ceb5508429de1"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T, typename State&gt;
+              </div>
+              concept nami::<wbr />timestepping::<wbr /><a href="#a134ac4f9589992b5125ceb5508429de1" class="m-doc-self">Rhs_t</a>
+            </h3>
+            <p><span></span></p>
+          </div></section>
+          <section class="m-doc-details" id="a0e31efe5e72d8816c5b6673aee3cb759"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T, typename State&gt;
+              </div>
+              concept nami::<wbr />timestepping::<wbr /><a href="#a0e31efe5e72d8816c5b6673aee3cb759" class="m-doc-self">RhsProxy_t</a>
+            </h3>
+            <p><span></span></p>
+          </div></section>
+          <section class="m-doc-details" id="a1f41b5f3d699d583cff8cf95db94373e"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T, typename State&gt;
+              </div>
+              concept nami::<wbr />timestepping::<wbr /><a href="#a1f41b5f3d699d583cff8cf95db94373e" class="m-doc-self">TimeIntegrator_t</a>
+            </h3>
+            <p><span></span></p>
           </div></section>
         </section>
       </div>

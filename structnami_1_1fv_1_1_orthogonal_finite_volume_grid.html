@@ -50,7 +50,7 @@
       <div class="m-col-l-10 m-push-l-1">
         <h1>
           <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_finite_volume_grid_8h.html">&lt;nami/FiniteVolumeGrid.h&gt;</a></div>
-          <div class="m-doc-template">template&lt;<a href="namespacenami_1_1core.html#ac25a796d3d036360a56a2135e632a4fd" class="m-doc">core::<wbr />Rim_t</a> rim, <a href="namespacenami_1_1core.html#a25a15d0d4aa8ba0e7405621372b12deb" class="m-doc">core::<wbr />Dimension_t</a> dimension, typename OrthogonalGriddingStrategy, typename FiniteVolumeCellBuilderType&gt;</div>
+          <div class="m-doc-template">template&lt;<a href="namespacenami_1_1core.html#ac25a796d3d036360a56a2135e632a4fd" class="m-doc">core::<wbr />Rim_t</a> rim, <a href="namespacenami_1_1coordinates.html#a55fb1fcee17637d6062c62b76e7e7b6a" class="m-doc">coordinates::<wbr />CoordinateSystem</a> CoordinateSystem, <a href="namespacenami_1_1fv.html#a13df7acd016a62ae26abbaa09aa0a935" class="m-doc">fv::<wbr />OrthogonalGriddingStrategy</a>&lt;<a href="namespacenami_1_1coordinates.html#a46151ff34d263de6b5ec3a4732291f91" class="m-doc">coordinates::<wbr />dimension</a>&lt;CoordinateSystem&gt;()&gt; OrthogonalGriddingStrategy, <a href="namespacenami_1_1fv.html#a69f0994bdf61200a8f7955a6bddc00b4" class="m-doc">OrthogonalFiniteVolumeCellBuilder</a>&lt;CoordinateSystem&gt; CellBuilder = <a href="structnami_1_1fv_1_1_default_orthogonal_finite_volume_cell_builder.html" class="m-doc">DefaultOrthogonalFiniteVolumeCellBuilder</a>&lt;std::remove_cvref_t&lt;CoordinateSystem&gt;&gt;&gt;</div>
           <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacenami_1_1fv.html">fv</a>::<wbr/></span>OrthogonalFiniteVolumeGrid <span class="m-thin">struct</span>
         </h1>
         <p><span></span></p>
@@ -61,7 +61,7 @@
               Reference
               <ul>
                 <li><a href="#pub-types">Public types</a></li>
-                <li><a href="#pub-static-methods">Public static functions</a></li>
+                <li><a href="#pub-static-attribs">Public static variables</a></li>
                 <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
                 <li><a href="#pub-attribs">Public variables</a></li>
@@ -72,37 +72,25 @@
         <section id="pub-types">
           <h2><a href="#pub-types">Public types</a></h2>
           <dl class="m-doc">
-            <dt id="a9733d32bc1af44d60d7460f8e5b4fed9">
-              using <a href="#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc-self">IndexTuple</a> = <a href="namespacenami_1_1core.html#ad1972e302bee15088bda191d7a4900ce" class="m-doc">core::<wbr />IndexTuple</a>&lt;dimension&gt;
+            <dt id="a34102601ad75cc6a39e2fea997229777">
+              using <a href="#a34102601ad75cc6a39e2fea997229777" class="m-doc-self">IndexTuple</a> = <a href="namespacenami_1_1core.html#a916993d24ac54a527e32e2f88b6138be" class="m-doc">core::<wbr />IndexTuple</a>&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#acd32c2e1ead978e41bcf34bf602e7556" class="m-doc">dimension</a>&gt;
             </dt>
             <dd><span></span></dd>
-            <dt id="ad786cadb6d4e3c1774113f31a86b41dd">
-              using <a href="#ad786cadb6d4e3c1774113f31a86b41dd" class="m-doc-self">Extent</a> = <a href="namespacenami_1_1core.html#a35426859a9bf34729d8be6b06d0f1e37" class="m-doc">core::<wbr />Extent</a>&lt;dimension&gt;
+            <dt id="a38a671513af35b79e90236d10f4339de">
+              using <a href="#a38a671513af35b79e90236d10f4339de" class="m-doc-self">Extent</a> = <a href="namespacenami_1_1core.html#a35426859a9bf34729d8be6b06d0f1e37" class="m-doc">core::<wbr />Extent</a>&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#acd32c2e1ead978e41bcf34bf602e7556" class="m-doc">dimension</a>&gt;
             </dt>
             <dd><span></span></dd>
-            <dt id="ac29b9fc662e565d3ceed8555b2fd0f55">
-              using <a href="#ac29b9fc662e565d3ceed8555b2fd0f55" class="m-doc-self">Cell</a> = <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_cell.html" class="m-doc">OrthogonalFiniteVolumeCell</a>&lt;dimension&gt;
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a884802c9a568c1190e097c0bfecf5a10">
-              using <a href="#a884802c9a568c1190e097c0bfecf5a10" class="m-doc-self">IndexTuplePair</a> = std::pair&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>, <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&gt;
+            <dt id="a0543138bf51de36b346aa806b9ecba57">
+              using <a href="#a0543138bf51de36b346aa806b9ecba57" class="m-doc-self">Cell</a> = typename CellBuilder::Cell_t
             </dt>
             <dd><span></span></dd>
           </dl>
         </section>
-        <section id="pub-static-methods">
-          <h2><a href="#pub-static-methods">Public static functions</a></h2>
+        <section id="pub-static-attribs">
+          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
           <dl class="m-doc">
-            <dt id="a28d331c7ceebbe334a094e0ce6a84a3a">
-              <span class="m-doc-wrap-bumper">static auto <a href="#a28d331c7ceebbe334a094e0ce6a84a3a" class="m-doc-self">computeCells</a>(</span><span class="m-doc-wrap">OrthogonalGriddingStrategy&amp; orthogonalGriddingStrategy,
-              const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; start,
-              const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; end,
-              FiniteVolumeCellBuilderType&amp; cellBuilder) -&gt; std::vector&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ac29b9fc662e565d3ceed8555b2fd0f55" class="m-doc">Cell</a>&gt;</span>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="ab5756022a0ee3b05284a31e0d41aa54c">
-              <span class="m-doc-wrap-bumper">static auto <a href="#ab5756022a0ee3b05284a31e0d41aa54c" class="m-doc-self">computeNeighbouringPairs</a>(</span><span class="m-doc-wrap">const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; start,
-              const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; end) -&gt; std::vector&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a884802c9a568c1190e097c0bfecf5a10" class="m-doc">IndexTuplePair</a>&gt;</span>
+            <dt id="acd32c2e1ead978e41bcf34bf602e7556">
+              static static <a href="namespacenami_1_1core.html#a25a15d0d4aa8ba0e7405621372b12deb" class="m-doc">core::<wbr />Dimension_t</a> <a href="#acd32c2e1ead978e41bcf34bf602e7556" class="m-doc-self">dimension</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -110,10 +98,11 @@
         <section id="typeless-methods">
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
-            <dt id="a053615a8160f015a7272736864b9ed70">
-              <span class="m-doc-wrap-bumper"><a href="#a053615a8160f015a7272736864b9ed70" class="m-doc-self">OrthogonalFiniteVolumeGrid</a>(</span><span class="m-doc-wrap"><a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ad786cadb6d4e3c1774113f31a86b41dd" class="m-doc">Extent</a> physicalExtent,
-              OrthogonalGriddingStrategy&amp;&amp; orthogonalGriddingStrategy,
-              FiniteVolumeCellBuilderType&amp;&amp; cellBuilder)</span>
+            <dt id="a3ea6631aa5df07b4f6624c7b3942770d">
+              <span class="m-doc-wrap-bumper"><a href="#a3ea6631aa5df07b4f6624c7b3942770d" class="m-doc-self">OrthogonalFiniteVolumeGrid</a>(</span><span class="m-doc-wrap">CoordinateSystem&amp; coordinateSystem,
+              <a href="namespacenami_1_1fv.html#a13df7acd016a62ae26abbaa09aa0a935" class="m-doc">OrthogonalGriddingStrategy</a> orthogonalGriddingStrategy,
+              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a38a671513af35b79e90236d10f4339de" class="m-doc">Extent</a> physicalExtent,
+              CellBuilder cellBuilder = CellBuilder{})</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -121,17 +110,17 @@
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="a75feb892da497bada0283971a8505095">
-              <div class="m-doc-template">template&lt;typename Functor&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="#a75feb892da497bada0283971a8505095" class="m-doc-self">forEachCellInterface</a>(</span><span class="m-doc-wrap">Functor&amp;&amp; fun) <span class="m-label m-flat m-primary">constexpr</span></span>
+            <dt id="aa074ac9cded05760be757cb5e6bed613">
+              <div class="m-doc-template">template&lt;<a href="namespacenami_1_1fv.html#a11d219bc81dc258f1b6f99d3457724a2" class="m-doc">CellInterfaceInvocable</a> Functor&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#aa074ac9cded05760be757cb5e6bed613" class="m-doc-self">forEachCellInterface</a>(</span><span class="m-doc-wrap">Functor&amp;&amp; fun) const <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a17e3f581b98991e06dd6665203aa3665">
-              <span class="m-doc-wrap-bumper">auto <a href="#a17e3f581b98991e06dd6665203aa3665" class="m-doc-self">getCellId</a>(</span><span class="m-doc-wrap">const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a>&amp; idx) const -&gt; <a href="namespacenami_1_1fv.html#a6b51eb947884e02583e2f17120ecfd5f" class="m-doc">CellIdentifier</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            <dt id="a33c4f7a9c38d8e8beab2f789b6574ded">
+              <span class="m-doc-wrap-bumper">auto <a href="#a33c4f7a9c38d8e8beab2f789b6574ded" class="m-doc-self">getCellId</a>(</span><span class="m-doc-wrap">const <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a34102601ad75cc6a39e2fea997229777" class="m-doc">IndexTuple</a>&amp; idx) const -&gt; <a href="namespacenami_1_1fv.html#a6b51eb947884e02583e2f17120ecfd5f" class="m-doc">CellIdentifier</a> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd><span></span></dd>
-            <dt id="af768eaedab158264c74a95e63b35d87c">
-              <span class="m-doc-wrap-bumper">auto <a href="#af768eaedab158264c74a95e63b35d87c" class="m-doc-self">computeCellInterfaces</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;<a href="structnami_1_1fv_1_1_cell_interface.html" class="m-doc">CellInterface</a>&gt;</span>
+            <dt id="ac1abf3f8be7a601083b27baca6dc5240">
+              <span class="m-doc-wrap-bumper">auto <a href="#ac1abf3f8be7a601083b27baca6dc5240" class="m-doc-self">computeCellInterfaces</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;<a href="structnami_1_1fv_1_1_cell_interface.html" class="m-doc">CellInterface</a>&gt;</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -139,40 +128,40 @@
         <section id="pub-attribs">
           <h2><a href="#pub-attribs">Public variables</a></h2>
           <dl class="m-doc">
-            <dt id="a5a338ea527ea2868c9e12760ab299f16">
-              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ad786cadb6d4e3c1774113f31a86b41dd" class="m-doc">Extent</a> <a href="#a5a338ea527ea2868c9e12760ab299f16" class="m-doc-self">physicalExtent_</a>
+            <dt id="a90a88dcf9ada891fce2a0b49ff9ff787">
+              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a38a671513af35b79e90236d10f4339de" class="m-doc">Extent</a> <a href="#a90a88dcf9ada891fce2a0b49ff9ff787" class="m-doc-self">physicalExtent_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="aacb75acfe554bd1085068ed651ed6fda">
-              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a> <a href="#aacb75acfe554bd1085068ed651ed6fda" class="m-doc-self">startTotalIndex_</a>
+            <dt id="ac83b98987067f3046c1c0937794e86aa">
+              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a34102601ad75cc6a39e2fea997229777" class="m-doc">IndexTuple</a> <a href="#ac83b98987067f3046c1c0937794e86aa" class="m-doc-self">startTotalIndex_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="aa4af03f66ee7174b04689b962c45198b">
-              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a9733d32bc1af44d60d7460f8e5b4fed9" class="m-doc">IndexTuple</a> <a href="#aa4af03f66ee7174b04689b962c45198b" class="m-doc-self">endTotalIndex_</a>
+            <dt id="a596893c77fd001cd1daf47443554d69c">
+              <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a34102601ad75cc6a39e2fea997229777" class="m-doc">IndexTuple</a> <a href="#a596893c77fd001cd1daf47443554d69c" class="m-doc-self">endTotalIndex_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a0e8e5598386504dfc111100ef2e3b74d">
-              std::size_t <a href="#a0e8e5598386504dfc111100ef2e3b74d" class="m-doc-self">numberOfPhysicalCells_</a>
+            <dt id="a7b781afcd2dab58572762d82af236c3f">
+              std::size_t <a href="#a7b781afcd2dab58572762d82af236c3f" class="m-doc-self">numberOfPhysicalCells_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a6033bf4c0a34e791fe14b86bad4ff233">
-              std::size_t <a href="#a6033bf4c0a34e791fe14b86bad4ff233" class="m-doc-self">numberOfTotalCells_</a>
+            <dt id="adada8c2d0ed83ab270829718319d7811">
+              std::size_t <a href="#adada8c2d0ed83ab270829718319d7811" class="m-doc-self">numberOfTotalCells_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="aa77fe78602e76d7d8309f6794fc480cf">
-              std::vector&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#ac29b9fc662e565d3ceed8555b2fd0f55" class="m-doc">Cell</a>&gt; <a href="#aa77fe78602e76d7d8309f6794fc480cf" class="m-doc-self">cells_</a>
+            <dt id="a95db69b31ee62cf9f7668a6ab730211b">
+              std::vector&lt;<a href="structnami_1_1fv_1_1_orthogonal_finite_volume_grid.html#a0543138bf51de36b346aa806b9ecba57" class="m-doc">Cell</a>&gt; <a href="#a95db69b31ee62cf9f7668a6ab730211b" class="m-doc-self">cells_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="ab1d5e0b95d0905c4cd91921b0b9929ce">
-              std::vector&lt;<a href="structnami_1_1fv_1_1_cell_interface.html" class="m-doc">CellInterface</a>&gt; <a href="#ab1d5e0b95d0905c4cd91921b0b9929ce" class="m-doc-self">cellInterfaces_</a>
+            <dt id="a72cbfc16ca78ed6ca3ca54bef14984ce">
+              std::vector&lt;<a href="structnami_1_1fv_1_1_cell_interface.html" class="m-doc">CellInterface</a>&gt; <a href="#a72cbfc16ca78ed6ca3ca54bef14984ce" class="m-doc-self">cellInterfaces_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="ad98d5663a8099076a9a3ee077389cab1">
-              OrthogonalGriddingStrategy <a href="#ad98d5663a8099076a9a3ee077389cab1" class="m-doc-self">orthogonalGriddingStrategy_</a>
+            <dt id="aed23975ce79b3d3d42846a815dc39c6e">
+              <a href="namespacenami_1_1fv.html#a13df7acd016a62ae26abbaa09aa0a935" class="m-doc">OrthogonalGriddingStrategy</a> <a href="#aed23975ce79b3d3d42846a815dc39c6e" class="m-doc-self">orthogonalGriddingStrategy_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a1a4c56c26c8f6a2ded27a165b298ae40">
-              FiniteVolumeCellBuilderType <a href="#a1a4c56c26c8f6a2ded27a165b298ae40" class="m-doc-self">cellBuilder_</a>
+            <dt id="ab1d01993ad014d4f19d71b058b03e2ae">
+              CellBuilder <a href="#ab1d01993ad014d4f19d71b058b03e2ae" class="m-doc-self">cellBuilder_</a>
             </dt>
             <dd><span></span></dd>
           </dl>

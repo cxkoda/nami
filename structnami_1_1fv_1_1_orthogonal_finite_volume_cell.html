@@ -50,7 +50,7 @@
       <div class="m-col-l-10 m-push-l-1">
         <h1>
           <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_finite_volume_cell_8h.html">&lt;nami/FiniteVolumeCell.h&gt;</a></div>
-          <div class="m-doc-template">template&lt;<a href="namespacenami_1_1core.html#a25a15d0d4aa8ba0e7405621372b12deb" class="m-doc">core::<wbr />Dimension_t</a> dimension&gt;</div>
+          <div class="m-doc-template">template&lt;<a href="namespacenami_1_1coordinates.html#a55fb1fcee17637d6062c62b76e7e7b6a" class="m-doc">coordinates::<wbr />CoordinateSystem</a> CoordinateSystem&gt;</div>
           <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacenami_1_1fv.html">fv</a>::<wbr/></span>OrthogonalFiniteVolumeCell <span class="m-thin">struct</span>
         </h1>
         <p><span></span></p>
@@ -60,28 +60,52 @@
             <li>
               Reference
               <ul>
+                <li><a href="#pub-types">Public types</a></li>
+                <li><a href="#pub-static-attribs">Public static variables</a></li>
                 <li><a href="#pub-attribs">Public variables</a></li>
               </ul>
             </li>
           </ul>
         </div>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt id="ac0aa78973abac06a28b0d1243ab54469">
+              using <a href="#ac0aa78973abac06a28b0d1243ab54469" class="m-doc-self">CoordinateSystem_t</a> = CoordinateSystem
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
+        <section id="pub-static-attribs">
+          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
+          <dl class="m-doc">
+            <dt id="a0d0e3b0003abc24666080cef0947a466">
+              static auto <a href="#a0d0e3b0003abc24666080cef0947a466" class="m-doc-self">dimension</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
         <section id="pub-attribs">
           <h2><a href="#pub-attribs">Public variables</a></h2>
           <dl class="m-doc">
-            <dt id="a98309207c68a66725b9406bd38fe6c35">
-              std::array&lt;double, dimension&gt; <a href="#a98309207c68a66725b9406bd38fe6c35" class="m-doc-self">from_</a>
+            <dt id="a099e59aff25ef28b318e2077179a6693">
+              std::array&lt;double, <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_cell.html#a0d0e3b0003abc24666080cef0947a466" class="m-doc">dimension</a>&gt; <a href="#a099e59aff25ef28b318e2077179a6693" class="m-doc-self">from_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="af6b5e26565d012133e54caec7a405d3d">
-              std::array&lt;double, dimension&gt; <a href="#af6b5e26565d012133e54caec7a405d3d" class="m-doc-self">to_</a>
+            <dt id="ae6b9358032bf340afaec04e66b667604">
+              std::array&lt;double, <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_cell.html#a0d0e3b0003abc24666080cef0947a466" class="m-doc">dimension</a>&gt; <a href="#ae6b9358032bf340afaec04e66b667604" class="m-doc-self">to_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a3fbaceeef6f30b117a01fb8df5739f9a">
-              std::array&lt;double, dimension&gt; <a href="#a3fbaceeef6f30b117a01fb8df5739f9a" class="m-doc-self">center_</a>
+            <dt id="a6787b89ac1cd8dd459d0659c97a87032">
+              std::array&lt;double, <a href="structnami_1_1fv_1_1_orthogonal_finite_volume_cell.html#a0d0e3b0003abc24666080cef0947a466" class="m-doc">dimension</a>&gt; <a href="#a6787b89ac1cd8dd459d0659c97a87032" class="m-doc-self">center_</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="a2f1b3df691ebd7247903c331d3d78be2">
-              double <a href="#a2f1b3df691ebd7247903c331d3d78be2" class="m-doc-self">volume_</a>
+            <dt id="aae29a82f6c4613227a18b32972ff93f2">
+              double <a href="#aae29a82f6c4613227a18b32972ff93f2" class="m-doc-self">volume_</a>
+            </dt>
+            <dd><span></span></dd>
+            <dt id="ae581041afa03a3661c87a583e6e6a936">
+              <a href="namespacenami_1_1fv.html#a6b51eb947884e02583e2f17120ecfd5f" class="m-doc">CellIdentifier</a> <a href="#ae581041afa03a3661c87a583e6e6a936" class="m-doc-self">id_</a>
             </dt>
             <dd><span></span></dd>
           </dl>

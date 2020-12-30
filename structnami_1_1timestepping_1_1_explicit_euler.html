@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>nami::fv::FiniteVolumeCellBuilder struct | Nami</title>
+  <title>nami::timestepping::ExplicitEuler struct | Nami</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -49,11 +49,34 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_finite_volume_cell_8h.html">&lt;nami/FiniteVolumeCell.h&gt;</a></div>
-          <div class="m-doc-template">template&lt;typename CoordinateSystem&gt;</div>
-          <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacenami_1_1fv.html">fv</a>::<wbr/></span>FiniteVolumeCellBuilder <span class="m-thin">struct</span>
+          <span class="m-breadcrumb"><a href="namespacenami.html">nami</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacenami_1_1timestepping.html">timestepping</a>::<wbr/></span>ExplicitEuler <span class="m-thin">struct</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="_explicit_euler_8h.html">&lt;nami/timestepping/ExplicitEuler.h&gt;</a></div>
         </h1>
         <p><span></span></p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt id="a0d8c116a64ad7bb800246ab2b93c6208">
+              <div class="m-doc-template">template&lt;<a href="namespacenami_1_1timestepping.html#a9b070c57e184152c5eb4ebe766158ad6" class="m-doc">State_<wbr />t</a> State&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a0d8c116a64ad7bb800246ab2b93c6208" class="m-doc-self">operator()</a>(</span><span class="m-doc-wrap"><a href="namespacenami_1_1timestepping.html#a45d64050654db1df904557674894006c" class="m-doc">Time_<wbr />t</a> time,
+              <a href="namespacenami_1_1timestepping.html#a6ecd702be0c033c188af7e284fc9f194" class="m-doc">Timestep_<wbr />t</a> timestep,
+              State&amp;&amp; state,
+              <a href="namespacenami_1_1timestepping.html#a0e31efe5e72d8816c5b6673aee3cb759" class="m-doc">RhsProxy_<wbr />t</a>&lt;State&gt; auto&amp;&amp; rhs) <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd><span></span></dd>
+          </dl>
+        </section>
       </div>
     </div>
   </div>

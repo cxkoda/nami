@@ -83,7 +83,7 @@
             <dd><span></span></dd>
             <dt>
               <div class="m-doc-template">template&lt;Dimension_t dimension&gt;</div>
-              using <a href="#ad1972e302bee15088bda191d7a4900ce" class="m-doc">IndexTuple</a> = std::array&lt;std::size_t, dimension&gt;
+              using <a href="#a916993d24ac54a527e32e2f88b6138be" class="m-doc">IndexTuple</a> = std::array&lt;long, dimension&gt;
             </dt>
             <dd><span></span></dd>
             <dt>
@@ -107,8 +107,8 @@
           <dl class="m-doc">
             <dt>
               <div class="m-doc-template">template&lt;Dimension_t dimension, typename Functor&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#aa2fe3a961e0c9b0871a5d83337348931" class="m-doc">for_each_index</a>(</span><span class="m-doc-wrap">const <a href="namespacenami_1_1core.html#ad1972e302bee15088bda191d7a4900ce" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; start,
-              const <a href="namespacenami_1_1core.html#ad1972e302bee15088bda191d7a4900ce" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; end,
+              <span class="m-doc-wrap-bumper">auto <a href="#aa2fe3a961e0c9b0871a5d83337348931" class="m-doc">for_each_index</a>(</span><span class="m-doc-wrap">const <a href="namespacenami_1_1core.html#a916993d24ac54a527e32e2f88b6138be" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; start,
+              const <a href="namespacenami_1_1core.html#a916993d24ac54a527e32e2f88b6138be" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; end,
               Functor&amp;&amp; fun) -&gt; auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd><span></span></dd>
@@ -118,8 +118,8 @@
             </dt>
             <dd><span></span></dd>
             <dt>
-              <div class="m-doc-template">template&lt;core::Dimension_t dimension&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a355cd4e3b5289245ae99cc3ce5dbefe0" class="m-doc">computeSize</a>(</span><span class="m-doc-wrap"><a href="namespacenami_1_1core.html#a35426859a9bf34729d8be6b06d0f1e37" class="m-doc">Extent</a>&lt;dimension&gt; extent) -&gt; std::size_t <span class="m-label m-flat m-primary">constexpr</span></span>
+              <div class="m-doc-template">template&lt;core::Dimension_t dimension, typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a84262f6e89872a6f00c4fa6fc123df2f" class="m-doc">computeSize</a>(</span><span class="m-doc-wrap">const std::array&lt;T, dimension&gt;&amp; extent) -&gt; std::size_t <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd><span></span></dd>
             <dt>
@@ -150,13 +150,13 @@
             </h3>
             <p><span></span></p>
           </div></section>
-          <section class="m-doc-details" id="ad1972e302bee15088bda191d7a4900ce"><div>
+          <section class="m-doc-details" id="a916993d24ac54a527e32e2f88b6138be"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_index_tuple_8h.html">&lt;nami/core/IndexTuple.h&gt;</a></div>
               <div class="m-doc-template">
                 template&lt;Dimension_t dimension&gt;
               </div>
-              using nami::<wbr />core::<wbr /><a href="#ad1972e302bee15088bda191d7a4900ce" class="m-doc-self">IndexTuple</a> = std::array&lt;std::size_t, dimension&gt;
+              using nami::<wbr />core::<wbr /><a href="#a916993d24ac54a527e32e2f88b6138be" class="m-doc-self">IndexTuple</a> = std::array&lt;long, dimension&gt;
             </h3>
             <p><span></span></p>
           </div></section>
@@ -196,8 +196,8 @@
               <div class="m-doc-template">
                 template&lt;Dimension_t dimension, typename Functor&gt;
               </div>
-              <span class="m-doc-wrap-bumper">auto nami::<wbr />core::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa2fe3a961e0c9b0871a5d83337348931" class="m-doc-self">for_each_index</a>(</span><span class="m-doc-wrap">const <a href="namespacenami_1_1core.html#ad1972e302bee15088bda191d7a4900ce" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; start,
-              const <a href="namespacenami_1_1core.html#ad1972e302bee15088bda191d7a4900ce" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; end,
+              <span class="m-doc-wrap-bumper">auto nami::<wbr />core::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa2fe3a961e0c9b0871a5d83337348931" class="m-doc-self">for_each_index</a>(</span><span class="m-doc-wrap">const <a href="namespacenami_1_1core.html#a916993d24ac54a527e32e2f88b6138be" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; start,
+              const <a href="namespacenami_1_1core.html#a916993d24ac54a527e32e2f88b6138be" class="m-doc">IndexTuple</a>&lt;dimension&gt;&amp; end,
               Functor&amp;&amp; fun) <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
             <p><span></span></p>
@@ -212,13 +212,13 @@
             </h3>
             <p><span></span></p>
           </div></section>
-          <section class="m-doc-details" id="a355cd4e3b5289245ae99cc3ce5dbefe0"><div>
+          <section class="m-doc-details" id="a84262f6e89872a6f00c4fa6fc123df2f"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="_index_tuple_8h.html">&lt;nami/core/IndexTuple.h&gt;</a></div>
               <div class="m-doc-template">
-                template&lt;core::Dimension_t dimension&gt;
+                template&lt;core::Dimension_t dimension, typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper">std::size_t nami::<wbr />core::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a355cd4e3b5289245ae99cc3ce5dbefe0" class="m-doc-self">computeSize</a>(</span><span class="m-doc-wrap"><a href="namespacenami_1_1core.html#a35426859a9bf34729d8be6b06d0f1e37" class="m-doc">Extent</a>&lt;dimension&gt; extent) <span class="m-label m-primary">constexpr</span></span></span>
+              <span class="m-doc-wrap-bumper">std::size_t nami::<wbr />core::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a84262f6e89872a6f00c4fa6fc123df2f" class="m-doc-self">computeSize</a>(</span><span class="m-doc-wrap">const std::array&lt;T, dimension&gt;&amp; extent) <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
             <p><span></span></p>
           </div></section>
