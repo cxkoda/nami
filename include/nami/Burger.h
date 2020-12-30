@@ -9,11 +9,14 @@
 
 #include "Fields.h"
 
-namespace nami {
-  namespace Burger {
+namespace nami
+{
+  namespace Burger
+  {
     using namespace nami::core;
 
-    template <typename T> struct Stack {
+    template <typename T>
+    struct Stack {
       [[nodiscard]] constexpr inline auto&& u() & noexcept { return std::get<0>(data); }
       [[nodiscard]] constexpr inline auto&& u() const& noexcept { return std::get<0>(data); }
       [[nodiscard]] constexpr inline auto&& u() && noexcept { return std::move(std::get<0>(data)); }
@@ -21,11 +24,15 @@ namespace nami {
       Fields<T> data;
     };
 
-    template <typename Stack> inline constexpr auto computeSignalSpeed(Stack&& stack) noexcept {
+    template <typename Stack>
+    inline constexpr auto computeSignalSpeed(Stack&& stack) noexcept
+    {
       return stack.u();
     }
 
-    template <typename Stack> inline constexpr auto computeFlux(Stack&& stack) {
+    template <typename Stack>
+    inline constexpr auto computeFlux(Stack&& stack)
+    {
       return 0.5 * stack.u() * stack.u();
     }
   }  // namespace Burger

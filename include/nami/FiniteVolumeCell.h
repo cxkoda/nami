@@ -12,10 +12,12 @@
 #include "nami/Cartesian.h"
 #include "nami/core/IndexTuple.h"
 
-namespace nami::fv {
+namespace nami::fv
+{
   using CellIdentifier = std::size_t;
 
-  template <coordinates::CoordinateSystem CoordinateSystem> struct OrthogonalFiniteVolumeCell {
+  template <coordinates::CoordinateSystem CoordinateSystem>
+  struct OrthogonalFiniteVolumeCell {
     static constexpr auto dimension = CoordinateSystem::dimension;
     using CoordinateSystem_t = CoordinateSystem;
 
@@ -26,12 +28,14 @@ namespace nami::fv {
     CellIdentifier id_{};
   };
 
-  template <typename T, typename CoordinateSystem_t> concept OrthogonalFiniteVolumeCellBuilder
+  template <typename T, typename CoordinateSystem_t>
+  concept OrthogonalFiniteVolumeCellBuilder
       = std::invocable<T, const CoordinateSystem_t&,
                        OrthogonalCoordinateCell<coordinates::dimension<CoordinateSystem_t>()>>;
 
   template <coordinates::CoordinateSystem CoordinateSystem_t>
-  struct DefaultOrthogonalFiniteVolumeCellBuilder {};
+  struct DefaultOrthogonalFiniteVolumeCellBuilder {
+  };
 
   template <core::Dimension_t dimension>
   struct DefaultOrthogonalFiniteVolumeCellBuilder<coordinates::Cartesian<dimension>> {
@@ -40,7 +44,8 @@ namespace nami::fv {
 
     inline constexpr auto operator()(
         [[maybe_unused]] const CoordinateSystem_t& coordinateSystem,
-        OrthogonalCoordinateCell<CoordinateSystem_t::dimension> coordinateCell) {
+        OrthogonalCoordinateCell<CoordinateSystem_t::dimension> coordinateCell)
+    {
       std::array<double, dimension> center{};
       std::transform(std::begin(coordinateCell.to_), std::end(coordinateCell.to_),
                      std::begin(coordinateCell.from_), std::begin(center),

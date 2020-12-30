@@ -8,18 +8,23 @@
 #include "nami/Cartesian.h"
 #include "nami/core/IndexTuple.h"
 
-namespace nami::fv {
-  template <core::Dimension_t dimension> struct OrthogonalCoordinateCell {
+namespace nami::fv
+{
+  template <core::Dimension_t dimension>
+  struct OrthogonalCoordinateCell {
     std::array<double, dimension> from_{};
     std::array<double, dimension> to_{};
   };
 
-  template <typename T, core::Dimension_t dimension> concept OrthogonalGriddingStrategy = requires {
+  template <typename T, core::Dimension_t dimension>
+  concept OrthogonalGriddingStrategy = requires
+  {
     std::is_invocable_v<T, std::array<double, dimension>, std::array<double, dimension>,
                         core::Extent<dimension>>;
   };
 
-  template <core::Dimension_t dimension> struct LinearGridding {
+  template <core::Dimension_t dimension>
+  struct LinearGridding {
     using Cell = OrthogonalCoordinateCell<dimension>;
     using IndexTuple = core::IndexTuple<dimension>;
 
@@ -30,13 +35,15 @@ namespace nami::fv {
 
     LinearGridding(std::array<double, dimension> from, std::array<double, dimension> to,
                    core::Extent<dimension> physicalExtent)
-        : from_(std::move(from)), to_(std::move(to)), physicalExtent_(std::move(physicalExtent)) {
+        : from_(std::move(from)), to_(std::move(to)), physicalExtent_(std::move(physicalExtent))
+    {
       for (std::size_t dim = 0; dim < dimension; ++dim) {
         dx_[dim] = (to_[dim] - from_[dim]) / static_cast<double>(physicalExtent_[dim]);
       }
     }
 
-    inline constexpr Cell getCell(const IndexTuple& indexTuple) const {
+    inline constexpr Cell getCell(const IndexTuple& indexTuple) const
+    {
       Cell cell{};
       for (std::size_t dim = 0; dim < dimension; ++dim) {
         cell.from_[dim] = indexTuple[dim] * dx_[dim] + from_[dim];

@@ -19,12 +19,15 @@
 #include "nami/core/ArrayArithmetic.h"
 #include "nami/core/IndexTuple.h"
 
-namespace nami {
-  namespace fv {
+namespace nami
+{
+  namespace fv
+  {
     using CellInterfaceIdentifier = std::size_t;
 
     struct CellInterface {
-      CellInterface(CellIdentifier cell1, CellIdentifier cell2) {
+      CellInterface(CellIdentifier cell1, CellIdentifier cell2)
+      {
         assert(cell1 != cell2);
         if (cell1 < cell2) {
           left_ = cell1;
@@ -35,7 +38,8 @@ namespace nami {
         }
       }
 
-      inline bool operator==(const CellInterface& other) const {
+      inline bool operator==(const CellInterface& other) const
+      {
         return std::tie(left_, right_) == std::tie(other.left_, other.right_);
       }
 
@@ -43,7 +47,8 @@ namespace nami {
       CellIdentifier right_{};
     };
 
-    template <typename T> concept CellInterfaceInvocable = std::invocable<T, const CellInterface&>;
+    template <typename T>
+    concept CellInterfaceInvocable = std::invocable<T, const CellInterface&>;
 
     //  template <typename GridType> struct FiniteVolumeGrid {
     //    template <typename Functor> inline constexpr decltype(auto) forEachCell(Functor&& fun) {
@@ -57,7 +62,8 @@ namespace nami {
 
     template <core::Dimension_t dimension>
     inline constexpr core::Extent<dimension> computeTotalExtent(core::Extent<dimension> extent,
-                                                                const core::Rim_t rim) {
+                                                                const core::Rim_t rim)
+    {
       std::transform(std::begin(extent), std::end(extent), std::begin(extent),
                      [rim](auto s) { return s + 2 * rim; });
       return extent;
@@ -73,7 +79,8 @@ namespace nami {
         CoordinateSystem&& coordinateSystem,
         OrthogonalGriddingStrategy&& orthogonalGriddingStrategy,
         const core::IndexTuple<dimension>& start, const core::IndexTuple<dimension>& end,
-        CellBuilder&& cellBuilder = CellBuilder{}) {
+        CellBuilder&& cellBuilder = CellBuilder{})
+    {
       using namespace core::array;
       const auto size = core::computeSize(end - start);
       using Cell_t = typename std::remove_cvref_t<CellBuilder>::Cell_t;
@@ -112,8 +119,8 @@ namespace nami {
     //      }
     //    };
 
-    template <core::Dimension_t dimension> using IndexTuplePair
-        = std::pair<core::IndexTuple<dimension>, core::IndexTuple<dimension>>;
+    template <core::Dimension_t dimension>
+    using IndexTuplePair = std::pair<core::IndexTuple<dimension>, core::IndexTuple<dimension>>;
 
     /**
      * Compute the pairs of neighbouring cells (interfaces with O in the sketch)
@@ -140,7 +147,8 @@ namespace nami {
      */
     template <core::Dimension_t dimension>
     inline constexpr std::vector<IndexTuplePair<dimension>> computeOrthogonalNeighbouringPairs(
-        const core::IndexTuple<dimension>& start, const core::IndexTuple<dimension>& end) {
+        const core::IndexTuple<dimension>& start, const core::IndexTuple<dimension>& end)
+    {
       std::vector<IndexTuplePair<dimension>> interfaces{};
       core::for_each_index(start, end, [&interfaces](const auto& idxTuple) {
         for (std::size_t dim = 0; dim < dimension; ++dim) {
@@ -184,7 +192,8 @@ namespace nami {
                                  Extent physicalExtent, CellBuilder cellBuilder = CellBuilder{})
           : physicalExtent_(std::move(physicalExtent)),
             orthogonalGriddingStrategy_(std::move(orthogonalGriddingStrategy)),
-            cellBuilder_(std::move(cellBuilder)) {
+            cellBuilder_(std::move(cellBuilder))
+      {
         auto totalExtent = computeTotalExtent(physicalExtent, rim);
         numberOfPhysicalCells_ = core::computeSize(physicalExtent_);
         numberOfTotalCells_ = core::computeSize(totalExtent);
@@ -199,12 +208,14 @@ namespace nami {
       }
 
       template <CellInterfaceInvocable Functor>
-      inline constexpr void forEachCellInterface(Functor&& fun) const {
+      inline constexpr void forEachCellInterface(Functor&& fun) const
+      {
         std::for_each(std::begin(cellInterfaces_), std::end(cellInterfaces_),
                       std::forward<Functor>(fun));
       }
 
-      inline constexpr CellIdentifier getCellId(const IndexTuple& idx) const {
+      inline constexpr CellIdentifier getCellId(const IndexTuple& idx) const
+      {
         CellIdentifier id{idx[0] + rim};
         for (std::size_t dim = 1; dim < dimension; ++dim) {
           id *= physicalExtent_[dim];
@@ -215,7 +226,8 @@ namespace nami {
         return id;
       }
 
-      std::vector<CellInterface> computeCellInterfaces() const {
+      std::vector<CellInterface> computeCellInterfaces() const
+      {
         IndexTuple startInterfaces, endInterfaces;
         for (std::size_t dim = 0; dim < dimension; ++dim) {
           startInterfaces[dim] = -rim + 1;

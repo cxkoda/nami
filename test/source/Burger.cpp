@@ -9,7 +9,8 @@
 
 using namespace nami::Burger;
 
-TEST_CASE("Burger System") {
+TEST_CASE("Burger System")
+{
   Stack<float> state{3.};
 
   CHECK(computeSignalSpeed(state) == 3.);

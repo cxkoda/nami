@@ -9,7 +9,8 @@
 using namespace nami;
 using namespace nami::fv;
 
-TEST_CASE("Linear Gridding dx") {
+TEST_CASE("Linear Gridding dx")
+{
   constexpr core::Dimension_t dimension = 2;
 
   std::array<double, dimension> from{-1, 2};
@@ -22,7 +23,8 @@ TEST_CASE("Linear Gridding dx") {
   CHECK_EQ(gridding.dx_[1], 5. / 20.);
 }
 
-TEST_CASE("Linear Gridding Cells") {
+TEST_CASE("Linear Gridding Cells")
+{
   constexpr core::Dimension_t dimension = 2;
 
   std::array<double, dimension> from{-1, -1};

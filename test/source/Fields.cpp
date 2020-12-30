@@ -6,13 +6,15 @@
 
 using namespace nami::core;
 
-template <typename... T> struct TestStack {
+template <typename... T>
+struct TestStack {
   TestStack(T&&... arg) : data{std::forward<T>(arg)...} {}
 
   Fields<T...> data{};
 };
 
-TEST_CASE("Stack Access") {
+TEST_CASE("Stack Access")
+{
   TestStack<int, int> a{2, 3};
 
   CHECK(get<0>(a) == 2);
@@ -30,7 +32,8 @@ TEST_CASE("Stack Access") {
   CHECK(b == 2);
 }
 
-TEST_CASE("Stack Addition") {
+TEST_CASE("Stack Addition")
+{
   TestStack<int, int> a{1, 2};
   TestStack<int, int> b{10, 20};
   CHECK(get<0>(a) == 1);
@@ -42,7 +45,8 @@ TEST_CASE("Stack Addition") {
   CHECK(get<1>(c) == 22);
 }
 
-TEST_CASE("Stack Addition") {
+TEST_CASE("Stack Addition")
+{
   const TestStack<int, double, std::string> a{2, 0.3, "hello"};
   const TestStack<int, double, std::string> b{3, 0.4, " world"};
 
@@ -67,9 +71,12 @@ TEST_CASE("Stack Addition") {
   }
 }
 
-template <typename T> struct ConcretePair {
-  template <typename T1, typename T2> ConcretePair(T1&& a1, T2&& a2)
-      : data{std::forward<T1>(a1), std::forward<T2>(a2)} {}
+template <typename T>
+struct ConcretePair {
+  template <typename T1, typename T2>
+  ConcretePair(T1&& a1, T2&& a2) : data{std::forward<T1>(a1), std::forward<T2>(a2)}
+  {
+  }
 
   ConcretePair() = default;
 
@@ -84,7 +91,8 @@ template <typename T> struct ConcretePair {
   constexpr inline auto&& q2() && { return std::move(std::get<1>(data)); }
 };
 
-TEST_CASE("ConcretePair Access") {
+TEST_CASE("ConcretePair Access")
+{
   {
     ConcretePair<int> a{2, 3};
 
@@ -113,7 +121,8 @@ TEST_CASE("ConcretePair Access") {
 
 #include <memory>
 
-TEST_CASE("ConcretePair Construction") {
+TEST_CASE("ConcretePair Construction")
+{
   using Copyable = ConcretePair<int>;
   using NonCopyable = ConcretePair<std::unique_ptr<int>>;
   {
@@ -162,9 +171,12 @@ TEST_CASE("ConcretePair Construction") {
   }
 }
 
-template <typename T> struct ConcreteDerived {
-  template <typename T1, typename T2> ConcreteDerived(T1&& a1, T2&& a2)
-      : data{std::forward<T1>(a1), std::forward<T2>(a2)} {}
+template <typename T>
+struct ConcreteDerived {
+  template <typename T1, typename T2>
+  ConcreteDerived(T1&& a1, T2&& a2) : data{std::forward<T1>(a1), std::forward<T2>(a2)}
+  {
+  }
 
   Fields<T, ConcretePair<T>> data{};
 
@@ -177,7 +189,8 @@ template <typename T> struct ConcreteDerived {
   constexpr inline auto&& pair() && { return std::move(std::get<1>(data)); }
 };
 
-TEST_CASE("ConcreteDerived Access") {
+TEST_CASE("ConcreteDerived Access")
+{
   ConcreteDerived<int> a{1, ConcretePair<int>{2, 3}};
 
   CHECK(get<0>(a) == 1);
@@ -197,7 +210,8 @@ TEST_CASE("ConcreteDerived Access") {
   CHECK(a.pair().q2() == 5);
 }
 
-TEST_CASE("ConcreteDerived Addition") {
+TEST_CASE("ConcreteDerived Addition")
+{
   ConcreteDerived<int> a{1, ConcretePair<int>{2, 3}};
   ConcreteDerived<int> b{10, ConcretePair<int>{20, 30}};
 

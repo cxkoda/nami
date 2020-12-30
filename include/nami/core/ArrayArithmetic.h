@@ -10,65 +10,78 @@
 #include <cassert>
 #include <concepts>
 
-namespace nami::core::array {
-  namespace internal {
-    template <typename T> concept Iterable = requires(T a) {
+namespace nami::core::array
+{
+  namespace internal
+  {
+    template <typename T>
+    concept Iterable = requires(T a)
+    {
       {std::begin(a)};
       {std::end(a)};
       {std::size(a)};
     };
   }  // namespace internal
 
-  inline constexpr auto& operator+=(internal::Iterable auto& lhs, internal::Iterable auto& rhs) {
+  inline constexpr auto& operator+=(internal::Iterable auto& lhs, internal::Iterable auto& rhs)
+  {
     assert(std::size(lhs) == std::size(rhs));
     std::transform(std::begin(lhs), std::end(lhs), std::begin(rhs), std::begin(lhs),
                    [](const auto& a, const auto& b) { return a + b; });
     return lhs;
   }
 
-  inline constexpr auto operator+(internal::Iterable auto lhs, const internal::Iterable auto& rhs) {
+  inline constexpr auto operator+(internal::Iterable auto lhs, const internal::Iterable auto& rhs)
+  {
     lhs += rhs;
     return lhs;
   }
 
-  inline constexpr auto& operator-=(internal::Iterable auto& lhs, internal::Iterable auto& rhs) {
+  inline constexpr auto& operator-=(internal::Iterable auto& lhs, internal::Iterable auto& rhs)
+  {
     assert(std::size(lhs) == std::size(rhs));
     std::transform(std::begin(lhs), std::end(lhs), std::begin(rhs), std::begin(lhs),
                    [](const auto& a, const auto& b) { return a - b; });
     return lhs;
   }
 
-  inline constexpr auto operator-(internal::Iterable auto lhs, const internal::Iterable auto& rhs) {
+  inline constexpr auto operator-(internal::Iterable auto lhs, const internal::Iterable auto& rhs)
+  {
     lhs -= rhs;
     return lhs;
   }
 
-  inline constexpr auto& operator/=(internal::Iterable auto& lhs, internal::Iterable auto& rhs) {
+  inline constexpr auto& operator/=(internal::Iterable auto& lhs, internal::Iterable auto& rhs)
+  {
     assert(std::size(lhs) == std::size(rhs));
     std::transform(std::begin(lhs), std::end(lhs), std::begin(rhs), std::begin(lhs),
                    [](const auto& a, const auto& b) { return a / b; });
     return lhs;
   }
 
-  inline constexpr auto operator/(internal::Iterable auto lhs, const internal::Iterable auto& rhs) {
+  inline constexpr auto operator/(internal::Iterable auto lhs, const internal::Iterable auto& rhs)
+  {
     lhs /= rhs;
     return lhs;
   }
 
-  inline constexpr auto& operator*=(internal::Iterable auto& lhs, internal::Iterable auto& rhs) {
+  inline constexpr auto& operator*=(internal::Iterable auto& lhs, internal::Iterable auto& rhs)
+  {
     assert(std::size(lhs) == std::size(rhs));
     std::transform(std::begin(lhs), std::end(lhs), std::begin(rhs), std::begin(lhs),
                    [](const auto& a, const auto& b) { return a * b; });
     return lhs;
   }
 
-  inline constexpr auto operator*(internal::Iterable auto lhs, const internal::Iterable auto& rhs) {
+  inline constexpr auto operator*(internal::Iterable auto lhs, const internal::Iterable auto& rhs)
+  {
     lhs *= rhs;
     return lhs;
   }
 
   inline constexpr bool operator==(const internal::Iterable auto& lhs,
-                                   const internal::Iterable auto& rhs) {
+                                   const internal::Iterable auto& rhs)
+  {
     assert(std::size(lhs) == std::size(rhs));
     return std::equal(std::begin(lhs), std::end(lhs), std::begin(rhs));
   }
@@ -76,7 +89,8 @@ namespace nami::core::array {
   /**
    * Row major less
    */
-  bool operator<(const internal::Iterable auto& lhs, const internal::Iterable auto& rhs) {
+  bool operator<(const internal::Iterable auto& lhs, const internal::Iterable auto& rhs)
+  {
     assert(std::size(lhs) == std::size(rhs));
     auto first1 = std::begin(lhs);
     auto last1 = std::end(lhs);

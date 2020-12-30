@@ -3,8 +3,8 @@
   AccessModifierOffset: '-2'
   AlignTrailingComments: 'true'
   AllowAllParametersOfDeclarationOnNextLine: 'false'
-  AlwaysBreakTemplateDeclarations: 'No'
-  BreakBeforeBraces: Attach
+  AlwaysBreakTemplateDeclarations: 'Yes'
+  BreakBeforeBraces: Linux
   ColumnLimit: '100'
   ConstructorInitializerAllOnOneLineOrOnePerLine: 'true'
   IncludeBlocks: Regroup

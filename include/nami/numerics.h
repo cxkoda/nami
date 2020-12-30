@@ -5,12 +5,16 @@
 #ifndef NAMI_NUMERICS_H
 #define NAMI_NUMERICS_H
 
-namespace nami {
-  namespace numerics {
+namespace nami
+{
+  namespace numerics
+  {
     //    template <typename T> struct NumericalFlux {};
     //    template <typename T> using NumericalFlux = Flux<T>;
 
-    template <typename T> constexpr auto computeHllFlux(const T& leftState, const T& rightState) {
+    template <typename T>
+    constexpr auto computeHllFlux(const T& leftState, const T& rightState)
+    {
       auto leftSpeed = computeSignalSpeed(leftState);
       auto rightSpeed = computeSignalSpeed(rightState);
       auto leftFlux = computeFlux(leftState);

@@ -12,7 +12,8 @@
 using namespace nami;
 using namespace nami::fv;
 
-TEST_CASE("Build Cartesian Gridding in 2 dimensions") {
+TEST_CASE("Build Cartesian Gridding in 2 dimensions")
+{
   constexpr core::Dimension_t dimension = 2;
   constexpr coordinates::Cartesian<dimension> cartesian{};
 
@@ -24,19 +25,22 @@ TEST_CASE("Build Cartesian Gridding in 2 dimensions") {
   auto cells = computeOrthogonalCells(cartesian, gridding, {0, 0}, {2, 2});
 
   CHECK(std::size(cells) == 4);
-  SUBCASE("All cells should have the same volume") {
+  SUBCASE("All cells should have the same volume")
+  {
     for (const auto& cell : cells) {
       CHECK(cell.volume_ == 1);
     }
   }
 
-  SUBCASE("The cell ids have to be in the correct order") {
+  SUBCASE("The cell ids have to be in the correct order")
+  {
     for (std::size_t idx = 0; idx < cells.size(); ++idx) {
       CHECK(cells[idx].id_ == idx);
     }
   }
 
-  SUBCASE("Checking the cell extents manually") {
+  SUBCASE("Checking the cell extents manually")
+  {
     using extent_t = decltype(cells[0].from_);
     CHECK(cells[0].from_ == extent_t{-1, -1});
     CHECK(cells[0].to_ == extent_t{0, 0});
@@ -49,7 +53,8 @@ TEST_CASE("Build Cartesian Gridding in 2 dimensions") {
   }
 }
 
-TEST_CASE("Neighbouring cells on an orthogonal grid") {
+TEST_CASE("Neighbouring cells on an orthogonal grid")
+{
   const auto neighbours = computeOrthogonalNeighbouringPairs<2>({0, 0}, {3, 2});
 
   auto findPair = [&neighbours](const decltype(neighbours)::value_type& item) {
@@ -58,23 +63,27 @@ TEST_CASE("Neighbouring cells on an orthogonal grid") {
 
   CHECK(std::size(neighbours) == 24);
 
-  SUBCASE("Obvious neighbours") {
+  SUBCASE("Obvious neighbours")
+  {
     CHECK(findPair({{0, 0}, {0, 1}}));
     CHECK(findPair({{1, 0}, {0, 0}}));
   }
   SUBCASE("A cell is not its own neighbour") { CHECK(!findPair({{0, 0}, {0, 0}})); }
-  SUBCASE("Ghost cells are neighbours") {
+  SUBCASE("Ghost cells are neighbours")
+  {
     CHECK(!findPair({{0, -1}, {0, 0}}));
     CHECK(!findPair({{-1, 1}, {0, 1}}));
   }
 
-  SUBCASE("Not neighbours at larger distances") {
+  SUBCASE("Not neighbours at larger distances")
+  {
     CHECK(!findPair({{0, 0}, {2, 0}}));
     CHECK(!findPair({{0, 0}, {1, 1}}));
   }
 }
 
-TEST_CASE("Cartesian Grid") {
+TEST_CASE("Cartesian Grid")
+{
   constexpr core::Dimension_t dimension = 2;
   using CoordinateSystem = nami::coordinates::Cartesian<2>;
   CoordinateSystem cartesian{};
@@ -94,7 +103,8 @@ TEST_CASE("Cartesian Grid") {
       cartesian, std::move(gridding), extent);
   //  const OrthogonalFiniteVolumeGrid<rim, CoordinateSystem> grid(cartesian, gridding, extent);
 
-  SUBCASE("The grid cell id computation has to match the id stored as cell member") {
+  SUBCASE("The grid cell id computation has to match the id stored as cell member")
+  {
     auto id = grid.getCellId({0, 0});
     CHECK(id == grid.cells_[id].id_);
 
