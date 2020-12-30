@@ -9,7 +9,6 @@
 #include <utility>
 
 namespace nami::timestepping {
-
   using Time_t = double;
   using Timestep_t = double;
   using IntegrationStep_t = std::size_t;

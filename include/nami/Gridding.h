@@ -5,12 +5,18 @@
 #ifndef NAMI_GRIDDING_H
 #define NAMI_GRIDDING_H
 
+#include "nami/Cartesian.h"
 #include "nami/core/IndexTuple.h"
 
 namespace nami::fv {
   template <core::Dimension_t dimension> struct OrthogonalCoordinateCell {
     std::array<double, dimension> from_{};
     std::array<double, dimension> to_{};
+  };
+
+  template <typename T, core::Dimension_t dimension> concept OrthogonalGriddingStrategy = requires {
+    std::is_invocable_v<T, std::array<double, dimension>, std::array<double, dimension>,
+                        core::Extent<dimension>>;
   };
 
   template <core::Dimension_t dimension> struct LinearGridding {

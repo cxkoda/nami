@@ -6,16 +6,15 @@
 #define NAMI_INDEXTUPLE_H
 
 #include <array>
+#include <cassert>
 #include <numeric>
 
 namespace nami::core {
-
   using Dimension_t = std::size_t;
 
-  template <Dimension_t dimension> using IndexTuple = std::array<std::size_t, dimension>;
+  template <Dimension_t dimension> using IndexTuple = std::array<long, dimension>;
 
   namespace internal {
-
     template <std::size_t iterDimension, Dimension_t dimension, typename Functor>
     inline constexpr void for_each_impl(IndexTuple<dimension>& idx,
                                         const IndexTuple<dimension>& start,
@@ -46,8 +45,11 @@ namespace nami::core {
   using Rim_t = std::size_t;
   template <core::Dimension_t dimension> using Extent = std::array<std::size_t, dimension>;
 
-  template <core::Dimension_t dimension>
-  inline constexpr std::size_t computeSize(Extent<dimension> extent) {
+  template <core::Dimension_t dimension, typename T>
+  inline constexpr std::size_t computeSize(const std::array<T, dimension>& extent) {
+    for (const auto& val : extent) {
+      assert(val >= 0);
+    }
     return computeProduct(extent);
   }
 

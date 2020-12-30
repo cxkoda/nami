@@ -10,7 +10,6 @@
 #include <type_traits>
 
 namespace nami::core {
-
   template <std::size_t idx, typename Iterable> constexpr inline auto&& get(Iterable&& object) {
     return std::get<idx>(std::forward<Iterable>(object).data);
   }
