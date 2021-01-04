@@ -23,7 +23,7 @@ TEST_CASE("Linear Gridding dx")
   CHECK_EQ(gridding.dx_[1], 5. / 20.);
 }
 
-TEST_CASE("Linear Gridding Cells")
+TEST_CASE("Simple Linear Grid")
 {
   constexpr core::Dimension_t dimension = 2;
 
@@ -33,15 +33,38 @@ TEST_CASE("Linear Gridding Cells")
 
   LinearGridding gridding{from, to, extent};
 
-  auto cell = gridding.getCell({0, 0});
-  CHECK(cell.from_[0] == -1);
-  CHECK(cell.from_[1] == -1);
-  CHECK(cell.to_[0] == 0);
-  CHECK(cell.to_[1] == 0);
+  SUBCASE("Cells")
+  {
+    auto cell = gridding.getCell({0, 0});
+    CHECK(cell.from_[0] == -1);
+    CHECK(cell.from_[1] == -1);
+    CHECK(cell.to_[0] == 0);
+    CHECK(cell.to_[1] == 0);
 
-  cell = gridding.getCell({0, 1});
-  CHECK(cell.from_[0] == -1);
-  CHECK(cell.from_[1] == 0);
-  CHECK(cell.to_[0] == 0);
-  CHECK(cell.to_[1] == 1);
+    cell = gridding.getCell({0, 1});
+    CHECK(cell.from_[0] == -1);
+    CHECK(cell.from_[1] == 0);
+    CHECK(cell.to_[0] == 0);
+    CHECK(cell.to_[1] == 1);
+  }
+
+  SUBCASE("Left Interface")
+  {
+    auto interface = gridding.getInterface({0, 0}, 0, CellInterfaceSide::left);
+    CHECK(interface.from_[0] == -1);
+    CHECK(interface.from_[1] == -1);
+    CHECK(interface.to_[0] == -1);
+    CHECK(interface.to_[1] == 0);
+    CHECK(interface.dim_ == 0);
+  }
+
+  SUBCASE("Right Interface")
+  {
+    auto interface = gridding.getInterface({0, 0}, 1, CellInterfaceSide::right);
+    CHECK(interface.from_[0] == -1);
+    CHECK(interface.from_[1] == 0);
+    CHECK(interface.to_[0] == 0);
+    CHECK(interface.to_[1] == 0);
+    CHECK(interface.dim_ == 1);
+  }
 }
